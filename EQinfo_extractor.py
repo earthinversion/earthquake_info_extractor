@@ -81,11 +81,12 @@ class eventnew:
         return cls(yr, mn, day, hr, mint)
 
 
-eqinfo = eventnew(1976, 3, 8, 4, 39)
-# eqinfo2 = eventnew.from_id("200504011527")
-print(eqinfo.lat)
-print(eqinfo.long)
-print(eqinfo.depth)
-print(eqinfo.mag)
+if __name__ == "__main__":
+    eqinfo = eventnew(1976, 3, 8, 4, 39)
+    # eqinfo2 = eventnew.from_id("200504011527")
+    print(eqinfo.lat)
+    print(eqinfo.long)
+    print(eqinfo.depth)
+    print(eqinfo.mag)
 print(eqinfo.name)
 # 1976/01/01 01:29:39.6

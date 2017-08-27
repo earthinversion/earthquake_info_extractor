@@ -50,7 +50,6 @@ def catalogueDownload(year, month, loc):
         print("ERROR downloading the data")
 
 
-# catalogueDownload(2002, 4, './catalogs')
 if __name__ == "__main__":
     print(headerstr, "\n")
     yearrange = input("Enter the year/month range(1994-present)\nFormat:'yyyy/mm-yyyy/mm'\ne.g. '2003/01-2004/12': ")
