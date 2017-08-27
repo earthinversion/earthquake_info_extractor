@@ -82,7 +82,8 @@ class eventinfo:
 
 
 if __name__ == "__main__":
-    userinput = "1976,3,8,4,39"
+    userinput = input("Enter the event year, month, day, hour, minutes separated by ',': ")
+    # userinput = "1976,3,8,4,39"
     yrr, mon, day, hrr, minn = list(map(int, userinput.split(",")))
     eqinfo = eventinfo(yrr, mon, day, hrr, minn)
     print("Event name: ", eqinfo.name)
