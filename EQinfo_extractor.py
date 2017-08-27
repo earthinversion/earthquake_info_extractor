@@ -88,5 +88,5 @@ if __name__ == "__main__":
     print(eqinfo.long)
     print(eqinfo.depth)
     print(eqinfo.mag)
-print(eqinfo.name)
-# 1976/01/01 01:29:39.6
+    print(eqinfo.name)
+    # 1976/01/01 01:29:39.6
