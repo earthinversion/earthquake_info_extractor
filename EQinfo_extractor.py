@@ -5,7 +5,7 @@ from datetime import datetime
 import re
 
 
-class eventnew:
+class eventinfo:
     now = datetime.now()
     months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 
@@ -17,10 +17,10 @@ class eventnew:
             ftype = "ndk"
         elif 1994 < inp[0] <= 2004:
             catfile = self.months[int(mon) - 1] + str(yrr)[-2:] + ".dek"
-            ftype = "dek1"
+            ftype = "dek"
         elif inp[0] <= 1994:
             catfile = "oldEQs.dek"
-            ftype = "dek2"
+            ftype = "dek"
         catfilefull = catdirpath + "/" + catfile
         if not os.path.exists(catfilefull):
             try:
@@ -52,7 +52,7 @@ class eventnew:
                             self.depth = data[5]
                             self.mag = data[6]
                             self.name = " ".join(data[8:])
-        elif ftype == "dek1" or ftype == "dek2":
+        elif ftype == "dek":
             dd = inp[1] + "/" + inp[2] + "/" + inp[0][-2:]  # mm/dd/yy
             tmm = inp[3] + ":" + inp[4]
             rex = re.compile("^[A-Z][0-9]*[A-Z]\s")
@@ -82,11 +82,16 @@ class eventnew:
 
 
 if __name__ == "__main__":
-    eqinfo = eventnew(1976, 3, 8, 4, 39)
+    # eqinfo = eventnew(1976, 3, 8, 4, 39)
     # eqinfo2 = eventnew.from_id("200504011527")
-    print(eqinfo.lat)
-    print(eqinfo.long)
-    print(eqinfo.depth)
-    print(eqinfo.mag)
-    print(eqinfo.name)
-    # 1976/01/01 01:29:39.6
+
+    # userinput = input("Enter the event year, month, day, hour, minutes separated by ',': ")
+    userinput = "1976,3,8,4,39"
+    yrr, mon, day, hrr, minn = list(map(int, userinput.split(",")))
+    eqinfo = eventinfo(yrr, mon, day, hrr, minn)
+    print("Event name: ", eqinfo.name)
+    print("Event origin time: %s:%s:%s" % (eqinfo.hour, eqinfo.min, eqinfo.sec))
+    print("Event latitude: ", eqinfo.lat)
+    print("Event longitude: ", eqinfo.long)
+    print("Event depth: ", eqinfo.depth)
+    print("Event magnitude: ", eqinfo.mag)
